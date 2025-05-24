@@ -10,9 +10,10 @@
     "lint:check": "eslint --ext .js,.jsx,.ts,.tsx .",
     "prettier": "prettier --write --ignore-unknown './{app,stories,components,ui,utils}/**/*.{js,ts,tsx,json,md}'",
     "prettier:check": "prettier --check --ignore-unknown './{app,stories,components,ui,utils}/**/*.{js,ts,tsx,json,md}'",
-    "format": "pnpm prettier:check && pnpm lint:check",
+    "format": "npm run prettier && npm run lint",
+    "format:check": "npm run prettier:check && npm run lint:check",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "next": "15.1.8",
