@@ -36,6 +36,14 @@ The basic button comes with 5 variants
   <Button variant="destructive">Destructive</Button>
 </div>
 
+```jsx
+<Button
+  variant="primary" // or outline, ghost, text, destructive
+>
+  Primary
+</Button>
+```
+
 ## Size
 
 Each button has 6 different size options to choose between
@@ -60,6 +68,15 @@ Each button has 6 different size options to choose between
     2xl
   </Button>
 </div>
+
+```jsx
+<Button
+  variant="primary"
+  size="xs" // or sm, md, lg, xl, 2xl
+>
+  Button
+</Button>
+```
 
 All of these different sizes are available for each variant
 
@@ -94,6 +111,15 @@ You can place icons within a button by passing it as a child
   </Button>
 </div>
 
+```jsx
+<Button variant="primary">
+  <ArrowLeftIcon /> Previous
+</Button>
+<Button variant="primary">
+  Next <ArrowRightIcon />
+</Button>
+```
+
 If you use an icon without text, make sure to include a hidden label for accessibility purposes
 
 <div className="flex flex-wrap gap-2">
@@ -102,6 +128,13 @@ If you use an icon without text, make sure to include a hidden label for accessi
     <Trash01Icon />
   </Button>
 </div>
+
+```jsx
+<Button variant="destructive">
+  <span className="sr-only">Delete</span>
+  <Trash01Icon />
+</Button>
+```
 
 SVG Icons will automatically be resized based on the button size
 
@@ -145,6 +178,12 @@ You can use buttons as links by passing an href prop
   </Button>
 </div>
 
+```jsx
+<Button variant="primary" href="/page/1">
+  Previous
+</Button>
+```
+
 {/* Any button/link prop can also be passed */}
 
 ## Interactivity
@@ -175,6 +214,15 @@ You can customize individual buttons by passing a `className` prop. If this clas
     {`Warning`}
   </Button>
 </div>
+
+```jsx
+<Button
+  variant="destructive"
+  className="bg-amber-500 hover:bg-amber-400 focus:bg-amber-400 border-amber-500"
+>
+  Warning
+</Button>
+```
 
 Due to how `tailwind-merge` works, you won't need to worry about conflicting styles when using the `className` prop.
 
