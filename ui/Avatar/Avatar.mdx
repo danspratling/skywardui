@@ -1,31 +1,32 @@
 ---
 title: Avatar
 description: An image that displays a user avatar with a fallback to the user's initials.
-links:
-  {
-    "storybook": "https://skyward-digital.github.io/sky-ui/?path=/story/ui-components-avatar--default",
-    "github": "https://github.com/skyward-digital/sky-ui/tree/main/ui/components/Avatar",
-  }
 ---
 
-import { CodePreview } from "#/src/components/Tabs"
-import { Avatar } from "#/ui/components/Avatar"
-import { Button } from "#/ui/components/Button"
+import { Avatar } from "../Avatar";
+import { Button } from "../Button";
 
-<CodePreview>
+<div className="flex flex-wrap gap-2">
   <Avatar
     src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
     alt="Dan Spratling"
     fallback="Dan Spratling"
   />
-</CodePreview>
+</div>
+
+```jsx
+<Avatar
+  src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
+  alt="Dan Spratling"
+/>
+```
 
 {/* ## Installation */}
 
 ## Usage
 
 ```jsx
-import { Avatar } from "#/ui/components/Avatar"
+import { Avatar } from "#/ui/components/Avatar";
 ```
 
 ```jsx
@@ -40,36 +41,32 @@ import { Avatar } from "#/ui/components/Avatar"
 
 The Avatar component functions like an image component, and takes `src` and `alt` props like an image would.
 
-<CodePreview client:load>
+<div className="flex flex-wrap gap-2">
   <Avatar
     src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
     alt="Dan Spratling"
     fallback="Dan Spratling"
+  />
+</div>
 
+```jsx
+<Avatar
+  src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
+  alt="Dan Spratling"
 />
-
-  <div slot="code">
-    ```jsx
-    <Avatar
-      src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
-      alt="Dan Spratling"
-    />
-    ```
-  </div>
-</CodePreview>
+```
 
 ## Fallback
 
 The avatar component has a fallback option that will display the user's initials if no image is provided.
 
-<CodePreview client:load>
+<div className="flex flex-wrap gap-2">
   <Avatar fallback="Dan Spratling" />
-  <div slot="code">
-    ```jsx
-    <Avatar fallback="Dan Spratling" />
-    ```
-  </div>
-</CodePreview>
+</div>
+
+```jsx
+<Avatar fallback="Dan Spratling" />
+```
 
 Fallbacks are automatically calculate the best initials to display (see code for a breakdown how this works).
 
@@ -86,7 +83,7 @@ Fallbacks are automatically calculate the best initials to display (see code for
 
 The avatar has a selection of sizes to choose between, from **xs** to **2xl**.
 
-<CodePreview client:load>
+<div className="flex flex-wrap gap-2">
   <Avatar
     src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
     alt="Dan Spratling"
@@ -135,19 +132,18 @@ The avatar has a selection of sizes to choose between, from **xs** to **2xl**.
   >
     2xl
   </Avatar>
-  <div slot="code">
-    ```jsx
-    <Avatar
-      src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
-      alt="Dan Spratling"
-      fallback="2xl"
-      size="xs" // or sm, md, lg, xl, 2xl
-    >
-      2xl
-    </Avatar>
-    ```
-  </div>
-</CodePreview>
+</div>
+
+```jsx
+<Avatar
+  src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
+  alt="Dan Spratling"
+  fallback="2xl"
+  size="xs" // or sm, md, lg, xl, 2xl
+>
+  2xl
+</Avatar>
+```
 
 {/* Color options */}
 
@@ -157,7 +153,7 @@ The avatar has a selection of sizes to choose between, from **xs** to **2xl**.
 
 You can customize avatars by passing a `className` prop. If this clashes with the default styles, the `className` will take precedence.
 
-<CodePreview client:load>
+<div className="flex flex-wrap gap-2">
   <Avatar
     className="rounded-lg rounded-tl-none"
     src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
@@ -165,16 +161,15 @@ You can customize avatars by passing a `className` prop. If this clashes with th
     fallback="Dan Spratling"
   />
   <Avatar className="bg-orange-500 text-white" fallback="Dan Spratling" />
-  <div slot="code">
-    ```jsx
-    <Avatar
-      className="rounded-lg rounded-tl-none"
-      src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
-      alt="Dan Spratling"
-      fallback="Dan Spratling"
-    />
-    // Orange background with white text
-    <Avatar className="bg-orange-500 text-white" fallback="Dan Spratling" />
-    ```
-  </div>
-</CodePreview>
+</div>
+
+```jsx
+<Avatar
+  className="rounded-lg rounded-tl-none"
+  src="https://a.storyblok.com/f/180053/1200x1600/bbce43daaf/dan-spratling-profile-picture.jpg"
+  alt="Dan Spratling"
+  fallback="Dan Spratling"
+/>
+// Orange background with white text
+<Avatar className="bg-orange-500 text-white" fallback="Dan Spratling" />
+```
