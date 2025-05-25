@@ -51,17 +51,18 @@ export const Header = ({
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size="sm" onClick={onLogout}>Log out</Button>
+            <Button size="sm" onClick={onLogout}>
+              Log out
+            </Button>
           </>
         ) : (
           <>
-            <Button size="sm" onClick={onLogin}>Log in</Button>
-            <Button
-              variant="primary"
-              size="sm"
-                onClick={onCreateAccount}
-                >Sign up</Button>
-            />
+            <Button size="sm" onClick={onLogin}>
+              Log in
+            </Button>
+            <Button variant="primary" size="sm" onClick={onCreateAccount}>
+              Sign up
+            </Button>
           </>
         )}
       </div>
