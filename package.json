@@ -14,8 +14,7 @@
     "format:check": "npm run prettier:check && npm run lint:check",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook",
-    "chromatic": "npx chromatic --project-token=chpt_a5cdf5ee8f1a826"
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "next": "15.1.8",
