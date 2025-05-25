@@ -15,6 +15,7 @@ jobs:
       - run: npm run format:check
 
   test:
+    name: Test
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
