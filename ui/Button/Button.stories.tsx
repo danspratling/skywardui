@@ -1,9 +1,8 @@
-import type { Meta } from "@storybook/react"
-import { CircleIcon } from "@untitledui-icons/react/line"
-
-import { Button } from "./Button"
-import type { ButtonProps } from "./Button.d"
-import { testButtonClick, testButtonLink } from "./Button.test"
+import type { Meta } from "@storybook/react";
+import { CircleIcon } from "@untitledui-icons/react/line";
+import { Button } from "./Button";
+import type { ButtonProps } from "./Button.d";
+import { testButtonClick, testButtonLink } from "./Button.test";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<ButtonProps> = {
@@ -32,37 +31,37 @@ const meta: Meta<ButtonProps> = {
     },
   },
   tags: ["autodocs"],
-}
+};
 
-export default meta
+export default meta;
 
 const args = {
   children: "Button CTA",
   variant: "primary",
   onClick: undefined,
   // size: 'md',
-}
+};
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 
 export const Primary = {
   args,
   play: testButtonClick,
-}
+};
 
 export const Outline = {
   args: {
     ...args,
     variant: "outline",
   },
-}
+};
 
 export const Ghost = {
   args: {
     ...args,
     variant: "ghost",
   },
-}
+};
 
 export const Text = {
   args: {
@@ -71,14 +70,14 @@ export const Text = {
     variant: "text",
   },
   play: testButtonLink,
-}
+};
 
 export const Destructive = {
   args: {
     ...args,
     variant: "destructive",
   },
-}
+};
 
 export const Icon = {
   args: {
@@ -90,7 +89,7 @@ export const Icon = {
       </>
     ),
   },
-}
+};
 
 export const IconLeading = {
   args: {
@@ -101,7 +100,7 @@ export const IconLeading = {
       </>
     ),
   },
-}
+};
 
 export const IconTrailing = {
   args: {
@@ -113,46 +112,46 @@ export const IconTrailing = {
       </>
     ),
   },
-}
+};
 
 export const XSmall = {
   args: {
     ...args,
     size: "xs",
   },
-}
+};
 
 export const Small = {
   args: {
     ...args,
     size: "sm",
   },
-}
+};
 
 export const Medium = {
   args: {
     ...args,
     size: "md",
   },
-}
+};
 
 export const Large = {
   args: {
     ...args,
     size: "lg",
   },
-}
+};
 
 export const XLarge = {
   args: {
     ...args,
     size: "xl",
   },
-}
+};
 
 export const XXLarge = {
   args: {
     ...args,
     size: "2xl",
   },
-}
+};

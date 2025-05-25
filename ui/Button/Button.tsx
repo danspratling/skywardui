@@ -1,6 +1,9 @@
-import { cn } from "@/utils"
-
-import type { ButtonElementProps, ButtonLinkProps, ButtonProps } from "./Button.d"
+import { cn } from "@/utils";
+import type {
+  ButtonElementProps,
+  ButtonLinkProps,
+  ButtonProps,
+} from "./Button.d";
 
 export const Button = ({
   variant = "primary",
@@ -9,11 +12,11 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const { href } = props as ButtonLinkProps
-  const { type, disabled } = props as ButtonElementProps
+  const { href } = props as ButtonLinkProps;
+  const { disabled } = props as ButtonElementProps;
 
   // A "button" can be both a <button> and an <a> element depending on the props passed. This lines up with the design system terminology moreso than the HTML spec where buttons and links are often visually indistinguishable.
-  const Component = href ? "a" : "button"
+  const Component = href ? "a" : "button";
 
   return (
     <Component
@@ -59,7 +62,7 @@ export const Button = ({
         size === "2xl" && "[&>svg]:size-8 [&>*>svg]:size-8",
 
         // any of the above classes can be overridden by passing a className prop
-        className
+        className,
       )}
       // type={type ?? undefined}
       disabled={disabled}
@@ -67,5 +70,5 @@ export const Button = ({
     >
       {children}
     </Component>
-  )
-}
+  );
+};
