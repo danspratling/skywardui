@@ -132,6 +132,8 @@ export const Badge = ({
 
       {image?.src && (
         <Image
+          width={16}
+          height={16}
           src={image.src}
           alt={image.alt}
           className={cn("flex-shrink-0 rounded-full -ml-0.5 size-4")}
