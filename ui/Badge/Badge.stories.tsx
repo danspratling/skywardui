@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { CircleIcon } from "@untitledui-icons/react/line";
 import { Default as Avatar } from "../Avatar/Avatar.stories";
 import { Badge } from "./Badge";
@@ -33,6 +33,17 @@ export const Dot = {
     children: "Category",
     color: "info",
     dot: true,
+  },
+};
+
+export const Icon = {
+  args: {
+    children: (
+      <>
+        <CircleIcon /> Category
+      </>
+    ),
+    color: "info",
   },
 };
 
