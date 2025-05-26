@@ -47,12 +47,18 @@ export const Checkbox = ({
           // className
         )}
         onKeyDown={(event) => {
-          props.onKeyDown && props.onKeyDown(event);
+          if (props.onKeyDown) {
+            props.onKeyDown(event);
+          }
           // According to WAI ARIA, Checkboxes don't activate on enter keypress
           if (event.key === "Enter") event.preventDefault();
         }}
         onClick={(event) => {
-          props.onChange ? props.onChange(event) : setCheckedState(!isChecked);
+          if (props.onChange) {
+            props.onChange(event);
+          } else {
+            setCheckedState(!isChecked);
+          }
         }}
         {...props}
       >
@@ -78,7 +84,11 @@ export const Checkbox = ({
         className="-translate-x-full absolute opacity-0 size-4 pointer-events-none"
         checked={isChecked === "indeterminate" ? true : isChecked}
         onChange={(event) => {
-          props.onChange ? props.onChange(event) : setCheckedState(!isChecked);
+          if (props.onChange) {
+            props.onChange(event);
+          } else {
+            setCheckedState(!isChecked);
+          }
         }}
       />
       {!hideLabel && label && (
@@ -91,9 +101,11 @@ export const Checkbox = ({
             size === "lg" && "text-md",
           )}
           onClick={(event) => {
-            props?.onChange
-              ? props.onChange(event)
-              : () => setCheckedState(!isChecked);
+            if (props?.onChange) {
+              props.onChange(event);
+            } else {
+              setCheckedState(!isChecked);
+            }
           }}
         >
           {label}
