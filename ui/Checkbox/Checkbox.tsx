@@ -83,13 +83,9 @@ export const Checkbox = ({
         value={isChecked ? "on" : "off"}
         className="-translate-x-full absolute opacity-0 size-4 pointer-events-none"
         checked={isChecked === "indeterminate" ? true : isChecked}
-        onChange={(event) => {
-          if (props.onChange) {
-            props.onChange(event);
-          } else {
-            setCheckedState(!isChecked);
-          }
-        }}
+        onChange={() =>
+          !props.onChange ? setCheckedState(!isChecked) : undefined
+        }
       />
       {!hideLabel && label && (
         <label
@@ -100,13 +96,6 @@ export const Checkbox = ({
             size === "md" && "text-sm",
             size === "lg" && "text-md",
           )}
-          onClick={(event) => {
-            if (props?.onChange) {
-              props.onChange(event);
-            } else {
-              setCheckedState(!isChecked);
-            }
-          }}
         >
           {label}
         </label>
