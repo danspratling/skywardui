@@ -25,18 +25,6 @@ export const Radio = ({
   const isChecked = checked !== undefined ? checked : checkedState;
 
   const Component = as ?? "button";
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (props.onClick) {
-      props.onClick(event);
-    }
-    setCheckedState(!isChecked);
-  };
-
-  const handleChange = () => {
-    if (!props.onChange) {
-      setCheckedState(!isChecked);
-    }
-  };
 
   return (
     <div className={cn("flex gap-3 items-center flex-nowrap", className)}>
@@ -59,8 +47,12 @@ export const Radio = ({
           // overrides
           // className
         )}
-        onClick={handleClick}
-        onChange={handleChange}
+        onClick={(event) =>
+          props.onClick ? props.onClick(event) : setCheckedState(!isChecked)
+        }
+        onChange={() =>
+          !props.onChange ? setCheckedState(!isChecked) : undefined
+        }
         {...props}
       >
         {isChecked &&

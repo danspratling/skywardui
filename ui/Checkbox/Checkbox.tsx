@@ -53,13 +53,9 @@ export const Checkbox = ({
           // According to WAI ARIA, Checkboxes don't activate on enter keypress
           if (event.key === "Enter") event.preventDefault();
         }}
-        onClick={(event) => {
-          if (props.onChange) {
-            props.onChange(event);
-          } else {
-            setCheckedState(!isChecked);
-          }
-        }}
+        onClick={(event) =>
+          props.onChange ? props.onChange(event) : setCheckedState(!isChecked)
+        }
         {...props}
       >
         {isChecked &&
