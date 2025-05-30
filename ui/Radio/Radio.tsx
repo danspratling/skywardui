@@ -1,12 +1,13 @@
 "use client";
 
 import { cn, transformId } from "@/utils";
-import { CheckIcon } from "@untitledui-icons/react/line";
+import { CircleIcon } from "@untitledui-icons/react/line";
 import { useState } from "react";
-import type { CheckboxProps } from "./Checkbox.d";
+import type { RadioProps } from "./Radio.d";
 
-export const Checkbox = ({
+export const Radio = ({
   id,
+  name,
   label,
   hideLabel,
   checked,
@@ -16,7 +17,7 @@ export const Checkbox = ({
   className,
   as,
   ...props
-}: CheckboxProps) => {
+}: RadioProps) => {
   // Uncontrolled (internal) component state - see "checked" for controlled component state
   const [checkedState, setCheckedState] = useState(defaultChecked || false);
 
@@ -30,12 +31,12 @@ export const Checkbox = ({
       <Component
         id={formattedId}
         type="button"
-        role="checkbox"
-        aria-checked={isChecked === "indeterminate" ? "mixed" : isChecked}
+        role="radio"
+        aria-checked={isChecked}
         data-state={isChecked ? "checked" : ""}
         value={isChecked ? "on" : "off"}
         className={cn(
-          "inline-flex rounded-md flex-none items-center justify-center border transition-colors duration-150 ease-in-out",
+          "inline-flex rounded-full flex-none items-center justify-center border transition-colors duration-150 ease-in-out",
           isChecked
             ? "border-indigo-500 bg-indigo-500 text-white"
             : "border-gray-700 dark:border-gray-300 bg-transparent",
@@ -46,21 +47,17 @@ export const Checkbox = ({
           // overrides
           // className
         )}
-        onKeyDown={(event) => {
-          if (props.onKeyDown) {
-            props.onKeyDown(event);
-          }
-          // According to WAI ARIA, Checkboxes don't activate on enter keypress
-          if (event.key === "Enter") event.preventDefault();
-        }}
         onClick={(event) =>
-          props.onChange ? props.onChange(event) : setCheckedState(!isChecked)
+          props.onClick ? props.onClick(event) : setCheckedState(!isChecked)
+        }
+        onChange={() =>
+          !props.onChange ? setCheckedState(!isChecked) : undefined
         }
         {...props}
       >
         {isChecked &&
           (icon ?? (
-            <CheckIcon
+            <CircleIcon
               className={cn(
                 "pointer-events-none text-inherit",
                 size === "sm" && "size-3",
@@ -73,15 +70,13 @@ export const Checkbox = ({
         <span className="sr-only">{label}</span>
       </Component>
       <input
-        type="checkbox"
-        aria-hidden="true"
-        tabIndex={-1}
-        value={isChecked ? "on" : "off"}
+        type="radio"
+        id={formattedId}
+        name={name}
         className="-translate-x-full absolute opacity-0 size-4 pointer-events-none"
-        checked={isChecked === "indeterminate" ? true : isChecked}
-        onChange={() =>
-          !props.onChange ? setCheckedState(!isChecked) : undefined
-        }
+        checked={isChecked}
+        tabIndex={-1}
+        aria-hidden="true"
       />
       {!hideLabel && label && (
         <label
