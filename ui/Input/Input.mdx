@@ -1,0 +1,66 @@
+---
+title: Input
+description: A component for collecting data input.
+---
+
+import { Copy06Icon, Mail01Icon } from "@untitledui-icons/react/line";
+import { Input } from "../Input";
+import { Label } from "../Label";
+
+<div className="flex flex-wrap gap-2">
+  <Input placeholder="Dan Spratling" />
+</div>
+
+{/* ## Installation */}
+
+## Usage
+
+```jsx
+import { Input } from "@/ui/Input";
+```
+
+```jsx
+<Input placeholder="Dan Spratling" />
+```
+
+## How it works
+
+The `Input` component provides some base styling to the regular `input` element, but you can pass any other props to it that you would normally pass to an `input` element too.
+
+<div className="flex flex-wrap gap-2">
+  <Input placeholder="Dan Spratling" />
+</div>
+
+```jsx
+<Input placeholder="Dan Spratling" />
+```
+
+<div className="flex flex-wrap gap-2">
+  <div className="flex w-full items-center">
+    <Label htmlFor="example-input" className="w-1/3">
+      Custom Label
+    </Label>
+    <Input id="example-input" placeholder="Dan Spratling" />
+  </div>
+</div>
+
+```jsx
+<div className="flex w-full items-center">
+  <Label htmlFor="example-input" className="w-1/3">
+    Custom Label
+  </Label>
+  <Input id="example-input" placeholder="Dan Spratling" />
+</div>
+```
+
+## Error
+
+Passing an error to the `Input` will display error styles automatically.
+
+<div className="flex flex-wrap gap-2">
+  <Input placeholder="Dan Spratling" error />
+</div>
+
+```jsx
+<Input placeholder="Dan Spratling" error />
+```
