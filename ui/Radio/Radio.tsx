@@ -25,6 +25,18 @@ export const Radio = ({
   const isChecked = checked !== undefined ? checked : checkedState;
 
   const Component = as ?? "button";
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (props.onClick) {
+      props.onClick(event);
+    }
+    setCheckedState(!isChecked);
+  };
+
+  const handleChange = () => {
+    if (!props.onChange) {
+      setCheckedState(!isChecked);
+    }
+  };
 
   return (
     <div className={cn("flex gap-3 items-center flex-nowrap", className)}>
@@ -47,17 +59,8 @@ export const Radio = ({
           // overrides
           // className
         )}
-        onKeyDown={(event) => {
-          props.onKeyDown && props.onKeyDown(event);
-          // According to WAI ARIA, Radioes don't activate on enter keypress
-          if (event.key === "Enter") event.preventDefault();
-        }}
-        onClick={(event) => {
-          props.onChange ? props.onChange(event) : setCheckedState(!isChecked);
-        }}
-        onChange={(event) => {
-          props.onChange ? props.onChange(event) : setCheckedState(!isChecked);
-        }}
+        onClick={handleClick}
+        onChange={handleChange}
         {...props}
       >
         {isChecked &&
@@ -75,16 +78,13 @@ export const Radio = ({
         <span className="sr-only">{label}</span>
       </Component>
       <input
-        name={name}
         type="radio"
-        aria-hidden="true"
-        tabIndex={-1}
-        value={isChecked ? "on" : "off"}
+        id={formattedId}
+        name={name}
         className="-translate-x-full absolute opacity-0 size-4 pointer-events-none"
         checked={isChecked}
-        onChange={(event) => {
-          props.onChange ? props.onChange(event) : setCheckedState(!isChecked);
-        }}
+        tabIndex={-1}
+        aria-hidden="true"
       />
       {!hideLabel && label && (
         <label
@@ -95,11 +95,6 @@ export const Radio = ({
             size === "md" && "text-sm",
             size === "lg" && "text-md",
           )}
-          onClick={(event) => {
-            props.onChange
-              ? props.onChange(event)
-              : () => setCheckedState(!isChecked);
-          }}
         >
           {label}
         </label>
