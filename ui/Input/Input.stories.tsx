@@ -26,6 +26,15 @@ export const Default: Story = {
   },
 };
 
+export const Filled: Story = {
+  args: {
+    id: "text",
+    type: "text",
+    placeholder: "Your first name",
+    value: "Dan",
+  },
+};
+
 export const Error: Story = {
   args: {
     id: "text",
@@ -40,6 +49,7 @@ export const Email: Story = {
     id: "email",
     type: "email",
     placeholder: "email@example.com",
+    value: "email@example.com",
   },
 };
 
@@ -48,5 +58,6 @@ export const Password: Story = {
     id: "password",
     type: "password",
     placeholder: "Your password",
+    value: "password",
   },
 };
