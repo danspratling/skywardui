@@ -50,11 +50,3 @@ export const Password: Story = {
     placeholder: "Your password",
   },
 };
-
-export const PasswordWithHint: Story = {
-  args: {
-    id: "password",
-    type: "password",
-    placeholder: "Your password",
-  },
-};
