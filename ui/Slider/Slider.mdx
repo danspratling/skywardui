@@ -1,0 +1,71 @@
+---
+title: Slider
+description: An input component that allows users to select values within a range
+---
+
+import { Badge } from "../Badge";
+import { Slider } from "./Slider";
+
+<div className="flex flex-wrap gap-2">
+  <Slider />
+</div>
+
+{/* ## Installation */}
+
+## Usage
+
+```jsx
+import { Slider } from "@/ui/Slider";
+```
+
+```jsx
+<Slider />
+```
+
+<div className="flex flex-wrap gap-2">
+  <Slider />
+</div>
+
+```jsx
+<Slider />
+```
+
+## Min/Max
+
+You can set the min and max values of the slider using the `min` and `max` props.
+
+<div className="flex flex-wrap gap-2">
+  <Slider min={1} max={5} value={3} />
+</div>
+
+```jsx
+<Slider min={1} max={5} value={3} />
+```
+
+(As we don't display the value anywhere right now, the only way we can check this works is by seeing the increased gaps between each step)
+
+## Controlled
+
+<Badge size="sm" color="gray">
+  Requires JS
+</Badge>
+
+We can manage the state of the slider from outside the component by passing in the `value` and `onChange` props.
+
+<div className="flex flex-wrap gap-2">
+  <Slider min={0} max={100} value={20} />
+</div>
+
+```jsx
+export const ControlledSlider = () => {
+  const [value, setValue] = useState(20);
+  return (
+    <Slider
+      min={0}
+      max={100}
+      value={value}
+      onChange={(e) => setValue(parseInt(e.target.value))}
+    />
+  );
+};
+```
