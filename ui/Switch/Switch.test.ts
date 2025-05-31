@@ -18,5 +18,5 @@ export const testSwitchClick = async ({
   await userEvent.click(canvas.getByText("Dark Mode"));
 
   // Checks switch can be clicked
-  await userEvent.click(canvas.getByRole("button"));
+  await userEvent.click(canvas.getByRole("switch"));
 };
