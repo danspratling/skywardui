@@ -1,0 +1,108 @@
+---
+title: Progress
+description: A component for showing progress
+---
+
+import { Button } from "../Button";
+import { Progress } from "./Progress";
+
+<div className="flex flex-wrap gap-2">
+  <Progress value={55} />
+</div>
+
+{/* ## Installation */}
+
+## Usage
+
+```jsx
+import { Progress } from "#/ui/components/Progress";
+```
+
+```jsx
+<Progress value={55} />
+```
+
+## Value
+
+You can pass any value between 0 and 100
+
+<div className="flex flex-wrap gap-2">
+  <Progress value={89.125} />
+  <Progress value={55} />
+  <Progress value={33.33} />
+</div>
+
+```jsx
+<Progress value={89.125} />
+<Progress value={55} />
+<Progress value={33.33} />
+```
+
+Any values over 100 or under 0 will automatically be adjusted to within the range
+
+<div className="flex flex-wrap gap-2">
+  <Progress value={120} />
+  <Progress value={-4} />
+</div>
+
+```jsx
+<Progress value={120} />
+<Progress value={-4} />
+```
+
+## Max
+
+You can pass the `max` prop to change the maximum value to greater/less than 100
+
+<div className="flex flex-wrap gap-2">
+  <Progress value={862} max={1000} />
+  <Progress value={12} max={20} />
+</div>
+
+```jsx
+<Progress value={862} max={1000} />
+<Progress value={12} max={20} />
+```
+
+## Indeterminate
+
+If you don't know the value, you can instead omit the `value` prop which will update the progress bar to be indeterminate
+
+<div className="flex flex-wrap gap-2">
+  <Progress />
+</div>
+
+```jsx
+<Progress />
+```
+
+This is not the same as passing `0` to `value`, which is treated like a regular numeric value instead of an indeterminate state
+
+<div className="flex flex-wrap gap-2">
+  <Progress />
+  <Progress value={0} />
+</div>
+
+```jsx
+<Progress />
+<Progress value={0} />
+```
+
+## Customization
+
+### Classes
+
+You can pass a `className` prop to update the style of the progress bar. Behind the scenes the progress bar is a native `<progress>` element, (unless you're using the indeterminate state)
+
+<div className="flex flex-wrap gap-2">
+  <Progress
+    className="h-5 [&::-webkit-progress-value]:bg-amber-500"
+    value={55}
+
+/>
+
+</div>
+
+```jsx
+<Progress className="h-5 [&::-webkit-progress-value]:bg-amber-500" value={55} />
+```
